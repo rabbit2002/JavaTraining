@@ -59,6 +59,24 @@ import java.util.Scanner;
  * String.format(String format, Object... args)
  * %s String        %c Character        %b Boolean
  * %d Integer(DEC)  %x Integer(HEX)     %o Integer(OCT)     %f Float
+ * //TODO 需要补充详细格式化案例
+ * <p>
+ * 基本类型与String互相转换
+ * 需要调用基本类型的包装类型的转换方法，其中char调用的是String的方法
+ * //TODO int在JVM内部应该是转换为Integer存储，需了解过程及内存分配，以及为何在栈中存储
+ * boolean  Boolean.parseBoolean(String s)
+ * byte     Byte.parseByte(String s[, int radix])
+ * int      Integer.parseInt(CharSequence s[, int beginIndex, int endIndex, int radix])
+ * long     Long.parseLong(CharSequence s[, int beginIndex, int endIndex, int radix])
+ * float    Float.parseFloat(String s)
+ * double   Double.parseDouble(String s)
+ * chat     new String().charAt(int index)
+ * String   String.valueOf(Object obj)
+ * <p>
+ * //TODO 需要了解 new String().intern();
+ * //TODO 需要了解 i18n 的使用
+ * //TODO Object... 方法可变参数
+ * //TODO 优化修改Exercise
  *
  * @author RABBIT2002
  * @date 2020/12/1
@@ -82,26 +100,26 @@ public class StringClass {
         System.out.println(String.format(new String("%d"), 0xFF));
 
         // Exercise 01
-        // new StringClass().Exercise01(scanner.nextLine());
+        new StringClass().exercise01(scanner.nextLine());
         // Exercise 02
-        //new StringClass().Exercise02(scanner.nextLine());
+        new StringClass().exercise02(scanner.nextLine());
         // Exercise 03
-        //new StringClass().Exercise03(scanner.nextLine());
+        new StringClass().exercise03(scanner.nextLine());
         // Exercise 04
-        //new StringClass().Exercise04(scanner.nextLine());
+        new StringClass().exercise04(scanner.nextLine());
         // Exercise 05
-        new StringClass().Exercise05("");
+        new StringClass().exercise05("");
         // Exercise 06
-        new StringClass().Exercise06(scanner.nextLine());
+        new StringClass().exercise06(scanner.nextLine());
         // Exercise 07
-        new StringClass().Exercise07(scanner.nextLine());
+        new StringClass().exercise07(scanner.nextLine());
 
     }
 
     /**
      * 1.从键盘上输入任意个任意字母，统计元音字母a、e、i、o、u共出现多少次
      */
-    public void Exercise01(String s) {
+    public void exercise01(String s) {
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o' || s.charAt(i) == 'u') {
@@ -119,7 +137,7 @@ public class StringClass {
      * 2.2.必须以大写字母开头
      * 2.3.必须包含数字、下划线
      */
-    public void Exercise02(String s) {
+    public void exercise02(String s) {
         System.out.println("Exercise02: ");
         if (s.length() < 6 || s.length() > 20) {
             System.out.println("The string is too long or too short");
@@ -150,7 +168,7 @@ public class StringClass {
      * 3.从键盘上输入若干汉字和英文字母组合，统计汉字的个数和英文字母的个数分别是多少。
      * 提示:汉字的unicode编码在\u4e00与\u9fa5之间
      */
-    public void Exercise03(String s) {
+    public void exercise03(String s) {
         System.out.println("Exercise03: ");
         int sumChinese = 0;
         int sumEnglish = 0;
@@ -171,7 +189,7 @@ public class StringClass {
      * 所谓回文单词指单词倒过来与原单词一样，
      * 比如 "level" "pop" "noon" 都是回文单词。
      */
-    public void Exercise04(String s) {
+    public void exercise04(String s) {
         System.out.println("Exercise04: ");
         for (int i = 0; i < s.length() / 2; i++) {
             if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
@@ -187,7 +205,7 @@ public class StringClass {
      * "天气太hot,食物都放坏了，我昨天就吃了一个坏蛋黄派，真是 Stupid啊，怎么能这么Stupid呢？"。
      * 编写程序将这段文字中的脏字"笨蛋"，"坏蛋"，"Stupid"用"****"替换。
      */
-    public void Exercise05(String s) {
+    public void exercise05(String s) {
         System.out.println("Exercise05: ");
         s = "天气太hot,食物都放坏了，我昨天就吃了一个坏蛋黄派，真是Stupid啊，怎么能这么Stupid呢？";
         String str = "笨蛋,坏蛋,Stupid";
@@ -214,7 +232,7 @@ public class StringClass {
     /**
      * 6.编写一个函数实现字符串倒置,用键盘输入一个字符串，调用函数输出结果。例如输入:"ABCDEFG"输出"GFEDCBA"
      */
-    public void Exercise06(String s) {
+    public void exercise06(String s) {
         for (int i = s.length() - 1; i >= 0; i--) {
             System.out.print(s.charAt(i));
         }
@@ -224,7 +242,7 @@ public class StringClass {
     /**
      * 7.编写一个求字符串长度的函数。完成字符串中length()的功能。
      */
-    public void Exercise07(String s) {
+    public void exercise07(String s) {
         System.out.println(s.toCharArray().length);
     }
 }

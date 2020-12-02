@@ -38,8 +38,8 @@ import java.util.Arrays;
  * // 要求升序排列后操作，否则可能下标异常
  * // 找到，                从0开始，返回 index
  * // 未找到，在数组范围内，  从1开始，返回插入后 -index
- * // 未找到，大于数组内元素，从1开始，返回  -(length+1)
- * // 未找到，小于数组内元素，从1开始，返回  -1
+ * // 未找到，大于数组内元素，从1开始，返回 -(length+1)
+ * // 未找到，小于数组内元素，从1开始，返回 -1
  * Arrays.binarySearch(Object[] a, Object key);
  * Arrays.binarySearch(Object[] a, int fromIndex, int toIndex, Object key);
  * <p>
