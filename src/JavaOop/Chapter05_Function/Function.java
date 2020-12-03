@@ -1,4 +1,4 @@
-package JavaOop.Chapter05_Function;
+package javaOop.chapter05_Function;
 
 /**
  * 方法分为API(Application Programming Interface)和自定义方法
