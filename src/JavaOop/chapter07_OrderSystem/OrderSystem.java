@@ -295,7 +295,7 @@ public class OrderSystem {
                 double tempPackingPrice = 0.0;
                 String inputFlag = null;
                 do {
-                    System.out.println(tempName + " 您好!请选择您想点的餐品(键入数字(" + 1 + "-" + FOOD_COUNT_MAX + ",0取消),回车确定):");
+                    System.out.println(tempName + "您好!请选择您想点的餐品(键入数字(" + 1 + "-" + FOOD_COUNT_MAX + ",0取消),回车确定):");
                     // System.out.printf("%s您好!请选择您想点的餐品(键入数字(%d-%d,0-取消),回车确定):\n", tempName, 1, FOOD_COUNT_MAX);
                     tempFoodSelect = Integer.parseInt(scanner.nextLine());
                     while (tempFoodSelect < 0 || tempFoodSelect > FOOD_COUNT_MAX) {
@@ -307,7 +307,7 @@ public class OrderSystem {
                         anyKeyToContinue();
                         return;
                     }
-                    System.out.println(tempName + " 您好!您选择了: " + foodName[tempFoodSelect - 1]);
+                    System.out.println(tempName + "您好!您选择了:" + foodName[tempFoodSelect - 1]);
 
                     System.out.println("请输入订餐数量(温馨提示:订餐总价小于" + EXTRA_PRICE_THRESHOLD + "元时,需要支付" + EXTRA_PRICE + "元配送费!):");
                     tempCount = Integer.parseInt(scanner.nextLine());
@@ -329,7 +329,7 @@ public class OrderSystem {
                     tempTime = Byte.parseByte(scanner.nextLine());
                 }
                 System.out.println(tempName + "您好!您的:" + tempCount + "份" + foodName[tempFoodSelect - 1]
-                        + "将于" + tempTime + " 时,为您配送");
+                        + "将于" + tempTime + "时,为您配送");
 
                 System.out.println("请输入您的送餐地址:");
                 tempAddress = scanner.nextLine();
