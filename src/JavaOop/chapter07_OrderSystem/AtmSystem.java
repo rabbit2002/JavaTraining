@@ -131,9 +131,8 @@ public class AtmSystem {
         System.out.println("--------------------");
         // 未插卡
         if (pointIndex == -1) {
-            System.out.println("\t1.开户");
-            System.out.println("\t2.插卡");
-            System.out.println("\t9.查看日志记录");
+            System.out.println("\t1.插卡");
+            System.out.println("\t2.开户");
         }
         // 插卡
         if (pointIndex >= 0) {
@@ -144,8 +143,8 @@ public class AtmSystem {
             System.out.println("\t3.更新用户信息");
             System.out.println("\t4.销户");
             System.out.println("\t5.退卡");
-            System.out.println("\t9.查看日志记录");
         }
+        System.out.println("\t9.查看日志记录");
         System.out.println("--------------------");
         System.out.println("请输入您的选择(键入数字,回车确定):");
 
@@ -156,13 +155,14 @@ public class AtmSystem {
      * 菜单选择
      */
     public static void menuSelect() {
+        int index = Integer.parseInt(scanner.nextLine());
         if (pointIndex == -1) {
-            switch (Integer.parseInt(scanner.nextLine())) {
+            switch (index) {
                 case 1:
-                    createAccount();
+                    login();
                     break;
                 case 2:
-                    login();
+                    createAccount();
                     break;
                 case 9:
                     showSystemLog();
@@ -171,7 +171,7 @@ public class AtmSystem {
                     break;
             }
         } else if (pointIndex >= 0) {
-            switch (Integer.parseInt(scanner.nextLine())) {
+            switch (index) {
                 case 1:
                     deposit();
                     break;
@@ -202,10 +202,18 @@ public class AtmSystem {
     public static void deposit() {
         System.out.println(accountName[pointIndex] + ",当前余额:" + accountAmount[pointIndex]);
         System.out.println("输入存款金额:");
-        double money = Double.parseDouble(scanner.nextLine());
+        double money;
+        do {
+            money = Double.parseDouble(scanner.nextLine());
+            if (money < 0) {
+                System.out.println("输入错误,请输入正确值(>0):");
+            }
+        }
+        while (money < 0);
         accountAmount[pointIndex] += money;
         System.out.println("已存入:" + money);
         System.out.println(accountName[pointIndex] + ",当前余额:" + accountAmount[pointIndex]);
+
         insertSystemLog(AtmSystem.accountName[pointIndex], AtmSystem.accountNumber[pointIndex], 3, String.valueOf(money));
     }
 
@@ -219,7 +227,6 @@ public class AtmSystem {
         if (money > accountAmount[pointIndex]) {
             System.out.println("余额不足!");
             insertSystemLog(AtmSystem.accountName[pointIndex], AtmSystem.accountNumber[pointIndex], 4, String.valueOf(money) + " Err");
-
             return;
         }
         accountAmount[pointIndex] -= money;
@@ -227,8 +234,6 @@ public class AtmSystem {
         System.out.println(accountName[pointIndex] + ",当前余额:" + accountAmount[pointIndex]);
 
         insertSystemLog(AtmSystem.accountName[pointIndex], AtmSystem.accountNumber[pointIndex], 4, String.valueOf(money));
-
-        return;
     }
 
     /**
@@ -250,6 +255,10 @@ public class AtmSystem {
         System.out.println("输入新账户名:");
         String phoneNumber = scanner.nextLine();
         System.out.println("新账户名" + phoneNumber);
+        if (searchAccount(phoneNumber) != pointIndex) {
+            System.out.println("该账户名已存在,请更换其他账户名");
+            return;
+        }
 
         String password = null;
         String passwordAgain = null;
@@ -297,9 +306,14 @@ public class AtmSystem {
         System.out.println("输入姓名:");
         String username = scanner.nextLine();
         System.out.println("姓名:" + username);
+
         System.out.println("输入账户名:");
         String phoneNumber = scanner.nextLine();
         System.out.println("账户名" + phoneNumber);
+        if (searchAccount(phoneNumber) >= 0) {
+            System.out.println("该账户名已存在,请更换其他账户名");
+            return;
+        }
 
         String password = null;
         String passwordAgain = null;
@@ -347,7 +361,12 @@ public class AtmSystem {
             }
         } while (!password.equals(passwordAgain));
 
-        if (accountAmount[pointIndex] > 0) {
+        if (!accountPassword[pointIndex].equals(password)) {
+            System.out.println("密码不正确");
+            return;
+        }
+
+        if (accountAmount[pointIndex] > 10E-9) {
             System.out.println("账户内仍有余额,不能销户");
             return;
         }
@@ -499,7 +518,6 @@ public class AtmSystem {
 
     public static void main(String[] args) {
         init();
-        // showSystemLog();
 
         while (true) {
             menuShow();
