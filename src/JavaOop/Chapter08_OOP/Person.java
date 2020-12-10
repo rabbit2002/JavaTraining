@@ -19,7 +19,7 @@ package javaOop.chapter08_OOP;
  * .    // 定义:类的成员变量/属性/状态
  * .    // 成员变量分配在堆中,会在创建时初始化为默认值
  * .    // 作用域:整个类内
- * .    // (局部变量分配在栈内,不会初始化默认值,作用域:代码块内)
+ * .    // (局部变量分配在栈内,不会初始化默认值,必须手动初始化,作用域:代码块内)
  * .    [访问限制修饰符] 数据类型 属性名
  * .    // 定义 类的成员方法/行为
  * .    [访问限制修饰符] 返回值类型 方法名称([形式参数类型 形式参数名称, ...]){...}
@@ -60,10 +60,11 @@ package javaOop.chapter08_OOP;
  * .    }
  * <p>
  * <p>
- * this是Java的关键字,表示正在运行的对象/实例,指向当前对象的引用
+ * this是Java的关键字,表示正在运行的对象/实例,指向当前对象的引用,谁调用指向谁
  * 成员变量和成员方法只有当实例化对象时才分配内存
  * 所以可以用this指向当前对象的成员变量或成员方法,但不能由类名调用
- * //TODO 成员方法调用时间
+ * // TODO 成员方法调用(分配)时间
+ * // TODO 整个类加载,各阶段加载及初始化流程
  * static是Java的关键字,表示静态,可以修饰内部类,成员属性和成员方法,定义静态块
  * 被static修饰的成员属性和成员方法称为静态属性/类属性和静态方法/类方法,属于类成员,不能用this指针
  * e.g.
@@ -78,9 +79,11 @@ package javaOop.chapter08_OOP;
  * 1.静态成员在类首次出现时在方法区中分配内存,进行类初始化,先初始化静态属性和静态方法,之后从上至下调用静态块
  * 2.静态成员只分配一次内存
  * 3.静态成员由类名调用,(不推荐)也可以用对象名调用
- * 4.静态属性可以通过静态块初始化(实例属性可以由构造函数初始化)
+ * 4.静态属性可以通过静态块初始化(实例属性可以由构造函数初始化),也可以不手动初始化,会自动初始化
  * <p>
- * 即:this和super都是实例指针,遵循:成员属性/方法可以互相调静态属性/方法,反之不行
+ * 即:this和super都是实例指针
+ * 遵循:(成员)静态属性/方法之间可以互相调用,成员属性/方法可以调静态属性/方法,静态属性/方法不能调用成员属性/方法
+ * 成员变量和类变量都可以手动初始化或自动初始化,只有局部变量必须手动初始化
  * <p>
  * <p>
  * final用来定义常量,即:值不可以更改的变量
@@ -127,13 +130,13 @@ package javaOop.chapter08_OOP;
 public class Person {
     private String name;
     private String gender;
-    private int age = a;
-    private static int a;
+    private int age = a_static;
+    private static int a_static;
     private final int A;
     private final static int A_STATIC;
 
     static {
-        a = 10;
+        // a_static = 10;
         A_STATIC = 20;
     }
 
@@ -157,7 +160,7 @@ public class Person {
         // 同下说明
         // this.a = 20;
         // this.test();
-        Person.a = 20;
+        Person.a_static = 20;
         Person.test();
     }
 
@@ -167,11 +170,13 @@ public class Person {
     }
 
     public static void test() {
-        Person.a = 20;
+        Person.a_static = 20;
         System.out.println("static test");
     }
 
     public static void main(String[] args) {
+        System.out.println(Person.a_static);
+
         Person person1 = new Person();
         person1.work();
         // Non-static method 'work()' cannot be referenced from a static context
@@ -184,8 +189,9 @@ public class Person {
         // person1.test();
 
         // 推荐写法
-        Person.a = 10;
+        Person.a_static = 10;
         Person.test();
+
     }
 
 }
