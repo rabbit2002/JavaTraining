@@ -5,10 +5,10 @@ package javaOop.chapter09_InheritanceAndPolymorphism;
  * <p>
  * 多态
  * <p>
- * 引用不同类型的对象,自动调用应用的对象的方法,针对不同的对象类型,响应不同的操作
+ * 引用不同类型的对象,自动调用引用的对象的方法,针对不同的对象类型,响应不同的操作
  * 多态的表现形式:类继承,抽象类,接口,其中接口是多态的主要表现形式
  * <p>
- * 首先,子类继承父类后,会继承除构造方法外的所有属性和方法,
+ * 首先,子类继承父类后,会继承父类除了构造方法和静态方法的所有的属性和方法,
  * 如果子类重写父类方法,在没有super.func()时,不会调用父类方法,只会执行子类方法,
  * 即,子类重写的方法覆盖了父类方法,使其不可见,除非主动调用,否则不会执行
  * 如果子类没有重写父类方法,调用子类的该方法时会自调用父类的该方法,
@@ -29,17 +29,25 @@ package javaOop.chapter09_InheritanceAndPolymorphism;
  * <p>
  * 因为父类指针和子类指针并不是同一类指针,所以需要类型转换,分为 向上造型 和 向下造型
  * <p>
- * 向上造型(自动):子类向父类转换,父类类型指针指向子类类型实例
- * 可以理解为,父类是个小框,子类是个包含小框的大框,用父类指针的小框去框子类的大框是肯定可以的,所以是自动造型
- * 向下造型(强制):父类向子类转换,子类类型指针指向父类类型实例
- * 可以理解为,这个父类指针的小框想框住子类的大框必定要强制,而且父类并不知道需要转换为那个子类,也需要强制指定
+ * 向上造型又称 里氏替换原则
+ * 向上造型(自动):父类类型指针指向子类类型实例,子类向父类转换
+ * 可以理解为,父类是个小框,子类是个包含小框的大框,用父类指针的指向小框中的内容是可以的,所以是自动造型
+ * 向下造型(强制):子类类型指针指向父类类型实例,父类向子类转换
+ * 可以理解为,1.这个父类指针只能指向小框,指向大框需要强制要求,2.而且父类并不知道需要转换为那个子类,也需要强制指定
  * 而当向下造型错误时,比如把不是这个子类的父类指针强制造型为该类就会报错(ClassCastException),因为框框不一样
  * <p>
+ * 在抽象类和接口中较常用多态,且向下造型一般用的不多
  * <p>
- * 接口和抽象类比较像定义不完全/没有定义父类方法的状态,所以只会执行子类继承/实现的方法,
- * 也就是用父类指向子类方法,执行子类的实现,
- * 而对于子类自有的方法,只能通过造型后执行
- * // TODO 抽象类及接口中的多态 还需校验修改
+ * 多态使用有很多种:主要说明以下两种:
+ * 1.父类引用作为方法参数
+ * .    public void func(Father father) {
+ * .        father.func();
+ * .    }
+ * 2.父类引用作为方法返回值
+ * .    public Father func() {
+ * .        return New Son();
+ * .    }
+ * <p>
  * <p>
  * instanceof 运算符:
  * (instance) instanceof (Class/Interface)
@@ -67,11 +75,11 @@ public class Polymorphism {
         // dog.say();
         // dog.eatBones();
 
-        // System.out.println("--Pat Start--");
-        // pat = new Pat("Pat");
-        // System.out.println("--Pat Say--");
-        // pat.say();
-        // System.out.println("--Pat End--");
+        System.out.println("--Pat Start--");
+        pat = new Pat("Pat");
+        System.out.println("--Pat Say--");
+        pat.say();
+        System.out.println("--Pat End--");
 
         System.out.println();
 
@@ -99,18 +107,18 @@ public class Polymorphism {
     }
 }
 
-// class Pat {
-abstract class Pat {
+// abstract class Pat {
+class Pat {
     private String name;
 
     public Pat(String name) {
         this.name = name;
     }
 
-    // public void say() {
-    //     System.out.println(this.getName() + ": is say");
-    // }
-    public abstract void say();
+    // public abstract void say();
+    public void say() {
+        System.out.println(this.getName() + ": is say");
+    }
 
     public String getName() {
         return name;

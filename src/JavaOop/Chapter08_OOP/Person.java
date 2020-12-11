@@ -72,7 +72,7 @@ package javaOop.chapter08_OOP;
  * .    public static int a;
  * .    // 静态方法/类方法
  * .    public static void func(){}
- * .    // 内部类
+ * .    // 静态内部类
  * .    static class ClassName{}
  * .    // 静态块
  * .    static{}
