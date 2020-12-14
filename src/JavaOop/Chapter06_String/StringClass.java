@@ -59,11 +59,12 @@ import java.util.Scanner;
  * String.format(String format, Object... args)
  * %s String        %c Character        %b Boolean
  * %d Integer(DEC)  %x Integer(HEX)     %o Integer(OCT)     %f Float
- * //TODO 需要补充详细格式化案例
+ * // TODO 需要补充详细格式化案例
  * <p>
  * 基本类型与String互相转换
  * 需要调用基本类型的包装类型的转换方法，其中char调用的是String的方法
- * //TODO int在JVM内部应该是转换为Integer存储，需了解过程及内存分配，以及为何在栈中存储
+ * // TODO int在JVM内部应该是转换为Integer存储，需了解过程及内存分配，以及为何在栈中存储
+ * // TODO 自动装箱与拆箱
  * boolean  Boolean.parseBoolean(String s)
  * byte     Byte.parseByte(String s[, int radix])
  * int      Integer.parseInt(CharSequence s[, int beginIndex, int endIndex, int radix])
@@ -73,10 +74,10 @@ import java.util.Scanner;
  * chat     new String().charAt(int index)
  * String   String.valueOf(Object obj)
  * <p>
- * //TODO 需要了解 new String().intern();
- * //TODO 需要了解 i18n 的使用
- * //TODO Object... 方法可变参数
- * //TODO 优化修改Exercise
+ * // TODO 需要了解 new String().intern();
+ * // TODO 需要了解 i18n 的使用
+ * // TODO Object... 方法可变参数
+ * // TODO 优化修改Exercise
  *
  * @author RABBIT2002
  * @date 2020/12/1

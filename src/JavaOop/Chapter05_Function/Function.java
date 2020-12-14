@@ -20,7 +20,7 @@ package javaOop.chapter05_Function;
  * <p>
  * 变量的作用域和生命周期：在块内作用，从分配内存到回收内存存活
  * 当前方法结束时回收栈，不回收堆，堆由GC处理
- * //TODO JVM 常量池 [任何]变量在JVM中的储存及释放
+ * // TODO JVM 常量池 [任何]变量在JVM中的储存及释放
  *
  * @author RABBIT2002
  * @date 2020/11/30
