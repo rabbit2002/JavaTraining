@@ -1,6 +1,9 @@
 package javaOop.chapter10_AbstractClassAndInterface;
 
 /**
+ * 接口表示一种约定,也表示一种能力,体现了约定和实现相分离的原则
+ * 通过面向接口编程,降低代码之间的耦合性,提高代码的可扩展性和可维护性
+ * <p>
  * 定义接口:[访问限制修饰符] [abstract](默认,可省略,不可修改) interface InterfaceName
  * 实现接口:class ClassName implements InterfaceName1[, InterfaceName2]
  * <p>
@@ -20,7 +23,7 @@ package javaOop.chapter10_AbstractClassAndInterface;
  * 6.接口没有最高层(抽象类Object)
  * 7.接口不能定义静态块
  * <p>
- * 抽象类和接口的使用:普通类最多可以继承一个直接父类(普通类或抽象类),但可同时实现多个接口
+ * 抽象类和接口的使用:普通类最多可以继承一个直接父类(普通类或抽象类),但可同时实现多个接口(以此达到多重继承的效果)
  * 实现以下情况的组合:
  * 1.抽象类直接继承(抽象)类
  * 2.抽象类直接实现(多个)接口

@@ -58,7 +58,7 @@ package javaOop.chapter09_InheritanceAndPolymorphism;
  * 编译器会检查 instance 是否能转换成右边的 Class 类型,如果不能转换则直接报错,
  * 如果不能确定类型,则通过编译,具体看运行时定
  * https://www.cnblogs.com/ysocean/p/8486500.html
- * // TODO 完善
+ * // TODO 完善 instanceof
  *
  * @author RABBIT2002
  * @date 2020/12/9
