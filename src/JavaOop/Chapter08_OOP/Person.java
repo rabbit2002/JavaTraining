@@ -1,5 +1,7 @@
 package javaOop.chapter08_OOP;
 
+import java.util.Arrays;
+
 /**
  * 面向对象
  * 面向对象程序设计(Object Oriented Programming, OOP)中认为:万事万物皆对象
@@ -130,6 +132,17 @@ package javaOop.chapter08_OOP;
  * 2.多用组合(比如接口作为属性,实际调用实现类),少用继承
  * 3.针对接口编程,不依赖于具体实现
  * 4.开闭原则
+ * <p>
+ * <p>
+ * 方法可变参数:形参个数可以变换
+ * void func(int param1, int param2, int... param){...}
+ * <p>
+ * 1.一个方法最多只能有一个可变参数,且一定是所有参数的最后一个
+ * 2.可变参数本质上是一个数组,可变参数在方法体内作为数组使用
+ * 2.1.形参传入null,此时实参为null
+ * 2.2.形参不传入任何值(或者没有此项),此时实参为空数组
+ * 2.3.形参传入1个或多个值,此时实参为数组
+ * 2.4.形参传入1个数组对象,此时实参为该数组对象
  *
  * @author RABBIT2002
  * @date 2020/12/5
@@ -181,6 +194,10 @@ public class Person {
         System.out.println("static test");
     }
 
+    public static void func(int... param) {
+        System.out.println("param pointer: " + param + ", values: " + Arrays.toString(param));
+    }
+
     public static void main(String[] args) {
         System.out.println(Person.a_static);
 
@@ -198,6 +215,14 @@ public class Person {
         // 推荐写法
         Person.a_static = 10;
         Person.test();
+
+        func(null);
+        func();
+        func(1);
+        func(1, 2);
+        int[] temp = new int[2];
+        System.out.println("int[] pointer: " + temp);
+        func(temp);
 
     }
 
