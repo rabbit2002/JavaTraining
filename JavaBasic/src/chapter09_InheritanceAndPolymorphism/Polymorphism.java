@@ -1,4 +1,4 @@
-package javaOop.chapter09_InheritanceAndPolymorphism;
+package chapter09_InheritanceAndPolymorphism;
 
 /**
  * 面向对象的三大特性：封装、继承、多态

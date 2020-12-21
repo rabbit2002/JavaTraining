@@ -1,4 +1,4 @@
-package javaOop.chapter10_AbstractClassAndInterface;
+package chapter10_AbstractClassAndInterface;
 
 /**
  * 被abstract关键字修饰的Class是Abstract Class

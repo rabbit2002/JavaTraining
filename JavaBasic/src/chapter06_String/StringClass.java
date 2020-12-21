@@ -1,4 +1,4 @@
-package javaOop.chapter06_String;
+package chapter06_String;
 
 import java.util.Scanner;
 

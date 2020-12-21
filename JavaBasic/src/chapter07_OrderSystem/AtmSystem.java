@@ -1,4 +1,4 @@
-package javaOop.chapter07_OrderSystem;
+package chapter07_OrderSystem;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

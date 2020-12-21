@@ -1,4 +1,4 @@
-package javaOop.chapter08_OOP;
+package chapter08_OOP;
 
 import java.util.Arrays;
 

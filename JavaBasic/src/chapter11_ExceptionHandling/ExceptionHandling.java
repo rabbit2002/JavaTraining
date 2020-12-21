@@ -1,4 +1,4 @@
-package javaOop.chapter11_ExceptionHandling;
+package chapter11_ExceptionHandling;
 
 /**
  * Exception 异常: 程序在编译或者运行时发生的非正常现象,由程序抛出和处理

@@ -1,4 +1,4 @@
-package javaOop.chapter09_InheritanceAndPolymorphism;
+package chapter09_InheritanceAndPolymorphism;
 
 /**
  * 关于继承和多态中属性和方法调用的演示

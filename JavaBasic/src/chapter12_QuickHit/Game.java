@@ -1,4 +1,4 @@
-package javaOop.chapter12_QuickHit;
+package chapter12_QuickHit;
 
 import java.util.Random;
 

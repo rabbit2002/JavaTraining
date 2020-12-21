@@ -1,4 +1,4 @@
-package javaOop.chapter10_AbstractClassAndInterface;
+package chapter10_AbstractClassAndInterface;
 
 /**
  * 接口表示一种约定,也表示一种能力,体现了约定和实现相分离的原则

@@ -1,4 +1,4 @@
-package javaOop.chapter10_AbstractClassAndInterface;
+package chapter10_AbstractClassAndInterface;
 
 /**
  * chapter10 AbstractClass and Interface HomeWork Exercise
