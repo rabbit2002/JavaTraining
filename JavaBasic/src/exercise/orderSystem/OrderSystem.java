@@ -1,4 +1,4 @@
-package chapter07_OrderSystem;
+package exercise.orderSystem;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -385,7 +385,7 @@ public class OrderSystem {
             System.out.printf("\t订单金额:\t￥%.2f\n", orderPrice[i]);
             System.out.println("\t送餐时间:\t" + orderTime[i]);
             System.out.println("\t送餐地址:\t" + orderAddress[i]);
-            System.out.println("\t订单签收状态:" + (orderConfirm[i] == true ? "是" : "否"));
+            System.out.println("\t订单签收状态:" + (orderConfirm[i] ? "是" : "否"));
         }
     }
 

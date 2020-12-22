@@ -1,4 +1,4 @@
-package chapter07_OrderSystem;
+package exercise.orderSystem;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

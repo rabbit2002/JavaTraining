@@ -1,4 +1,4 @@
-package chapter12_QuickHit;
+package exercise.quickHit;
 
 /**
  * 关卡参数类
