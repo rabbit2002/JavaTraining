@@ -3,6 +3,12 @@ package chapter04_Array;
 import java.util.Arrays;
 
 /**
+ * JVM数组元素赋值方法
+ * // src源数组, srcPos 源数组开始位置, dest目标数组, destPos目标数组开始位置, length复制长度
+ * System.arraycopy(Object src,  int srcPos, Object dest, int destPos, int length);
+ * 1.native方法
+ * // TODO 需要整理到 array
+ * <p>
  * 一个专门用来操作数组的类，提供了一系列方法用于操作数组
  * java.util.Arrays
  * <p>
@@ -30,10 +36,18 @@ import java.util.Arrays;
  * // [fromIndex, toIndex-1)
  * Arrays.equals(Object[] a, int aFromIndex, int aToIndex, Object[] b, int bFromIndex, int bToIndex);
  * <p>
+ * // TODO array start
+ * // 1.创建一个长度为 newLength 的新数组后,
+ * // 2.调用 System.arraycopy(original, 0, copy, 0, Math.min(original.length, newLength));
+ * // 3.返回新数组
  * // 范围内截取，超过范围填充默认值
  * Arrays.copyOf(T[] original, int newLength);
- * // [fromIndex, toIndex-1)
+ * // 1.如果 (to - from < 0) throw IllegalArgumentException
+ * // 2.创建新数组 长度 newLength = to - from
+ * // 3.调用 System.arraycopy(original, from, copy, 0, Math.min(original.length - from, newLength));
+ * // [fromIndex, toIndex)
  * Arrays.copyOfRange(T[] original, int from, int to);
+ * // TODO array end
  * <p>
  * // 要求升序排列后操作，否则可能下标异常
  * // 找到，                从0开始，返回 index

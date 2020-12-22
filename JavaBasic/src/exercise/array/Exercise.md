@@ -42,7 +42,6 @@ String[] names = {"雷军", "马云", "谭浩强", "佟瑶", "蓝馨怡"};
 // 设 courses 数组中依次存放三门课程的名称
 String[] courses = {"C++", "Java", "English"};
 // 设 scores 数组中依次存储的是 names 数组中各个学生的 C++ 、Java 、English 课程的成绩
-String[] courses = {"C++", "Java", "English"};
 int[][] scores = {
         {90, 89, 75}, 
         {59, 40, 100}, 
