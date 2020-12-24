@@ -3,16 +3,10 @@ package chapter06_String;
 import java.util.Scanner;
 
 /**
- * String是引用类型而不是基本类型
+ * 部分已迁移
+ * // TODO 迁移
  * <p>
- * ASCII American Standard Code for Information Interchange
- * 共128位: 0-9[48-57] A-Z[65-90] a-z[97-122]
- * <p>
- * String有两种声明方式
- * 1.字面量——双引号直接赋值
- * 2.new String();
  * // TODO 还需后续学习JVM部分
- * 其中：字面量存放在常量池，新实例存放在堆
  * 常量池：当字面量存在时，指向存在的字面量；当字面量不存在时，新建字面量，指向该字面量
  * 由于常量池中会引用相同的内容，所以字面量可以用 "=" 或 equals()判断值是否相等
  * 常量池不会参与GC

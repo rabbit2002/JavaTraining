@@ -25,6 +25,9 @@ import java.util.Arrays;
  * // 通过使用指定的 charset 解码指定的 byte数组，构造一个新的 String实例
  * String(byte bytes[], int offset, int length, Charset charset);
  * String(byte bytes[], int offset, int length, String charsetName)
+ * <p>
+ * ASCII American Standard Code for Information Interchange
+ * 共128位: 0-9[48-57] A-Z[65-90] a-z[97-122]
  *
  * @author RABBIT2002
  * @date 2020/12/22
@@ -71,8 +74,8 @@ public class CharSet {
 
         byte[] bytes2 = new byte[]{-51, -61, -51, -61, 58, 32, 95, 40, 58, -89, -39, -95, -71, -95, -49, 41, 95};
         System.out.println(new String(bytes2));
-        System.out.println(new String(bytes2,utf8CharSet));
-        System.out.println(new String(bytes2,gbkCharSet));
+        System.out.println(new String(bytes2, utf8CharSet));
+        System.out.println(new String(bytes2, gbkCharSet));
 
     }
 }
