@@ -24,7 +24,6 @@ public class StringJoiner {
     }
 
     private static void func1() {
-        // public StringJoiner(CharSequence delimiter);
         // public StringJoiner(CharSequence delimiter, CharSequence prefix, CharSequence suffix);
         stringJoiner1 = new java.util.StringJoiner(", ", "< ", " >");
 
@@ -34,13 +33,18 @@ public class StringJoiner {
         stringJoiner1.add("3");
 
         // toString(); 用于转换为字符串
+        // < 1, 2, 3 >
         System.out.println(stringJoiner1.toString());
         System.out.println(System.identityHashCode(stringJoiner1));
 
+        System.out.println();
+
+        // public StringJoiner(CharSequence delimiter);
         stringJoiner2 = new java.util.StringJoiner(". ");
         stringJoiner2.add("4");
         stringJoiner2.add("5");
         stringJoiner2.add("6");
+        // 4. 5. 6
         System.out.println(stringJoiner2.toString());
         System.out.println(System.identityHashCode(stringJoiner2));
     }
