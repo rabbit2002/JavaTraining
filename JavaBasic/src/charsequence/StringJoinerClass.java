@@ -12,7 +12,7 @@ package charsequence;
  * @author RABBIT2002
  * @date 2020/12/23
  */
-public class StringJoiner {
+public class StringJoinerClass {
 
     private static java.util.StringJoiner stringJoiner1;
     private static java.util.StringJoiner stringJoiner2;
