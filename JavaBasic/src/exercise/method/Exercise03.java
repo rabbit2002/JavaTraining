@@ -8,52 +8,47 @@ package exercise.method;
  */
 public class Exercise03 {
 
-    // private 表示私有的
-    private static final char[] HEAVENLY_STEMS = {'甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'}; // 天干
-    // static 表示与类相关的、属于类的
-    private static final char[] EARTHLY_BRANCHES = {'子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'};// 地支
-    // final 表示最终的、不可更改的
-    private static final char[] CHINESE_ZODIAC = {'鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'};// 生肖
+    // 天干
+    private static final char[] HEAVENLY_STEMS;
+    // 地支
+    private static final char[] EARTHLY_BRANCHES;
+    // 生肖
+    private static final char[] CHINESE_ZODIAC;
 
-    private static final int CONTRAST = 1984; // 参照年份 ( 甲子年 ，生肖为 鼠 )
+    // 参照年份 ( 甲子年 ，生肖为 鼠 )
+    private static final int CONTRAST = 1984;
+
+    static {
+        HEAVENLY_STEMS = new char[]{'甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'};
+        EARTHLY_BRANCHES = new char[]{'子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'};
+        CHINESE_ZODIAC = new char[]{'鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'};
+    }
 
     public static void main(String[] args) {
         show();
-        System.out.println(seek(2020));
-        System.out.println(sign(2020));
-
+        System.out.println(seek(1863));
+        System.out.println(sign(1863));
     }
 
     public static void show() {
-        for (int i = 0, heavenlyStemsInt = 0, earthlyBranchesInt = 0;
-             i < 60;
-             i++, heavenlyStemsInt++, earthlyBranchesInt++) {
-            heavenlyStemsInt %= 10;
-            earthlyBranchesInt %= 12;
-            if (i > 0 && i % 12 == 0) {
-                System.out.println();
-            }
-            System.out.print("" + HEAVENLY_STEMS[heavenlyStemsInt] + EARTHLY_BRANCHES[earthlyBranchesInt] + " ");
+        for (int i = 0; i < 60; i++) {
+            System.out.print(generate(i) + ((i + 1) % 12 == 0 ? "\n" : " "));
         }
+    }
+
+    public static String generate(int x) {
+        return HEAVENLY_STEMS[x % HEAVENLY_STEMS.length]
+                + ""
+                + EARTHLY_BRANCHES[x % EARTHLY_BRANCHES.length];
     }
 
     public static String seek(int year) {
-        int chronology = (year - CONTRAST) % 60;
-        String s = null;
-        for (int i = 0, heavenlyStemsInt = 0, earthlyBranchesInt = 0;
-             i <= chronology;
-             i++, heavenlyStemsInt++, earthlyBranchesInt++) {
-            heavenlyStemsInt %= 10;
-            earthlyBranchesInt %= 12;
-            if (i == chronology) {
-                s = "" + HEAVENLY_STEMS[heavenlyStemsInt] + EARTHLY_BRANCHES[earthlyBranchesInt];
-            }
-        }
-        return s;
+        int length = HEAVENLY_STEMS.length * CHINESE_ZODIAC.length;
+        return generate((length - Math.abs(year - CONTRAST) % length) % length);
     }
 
     public static char sign(int year) {
-        int zodiac = (year - CONTRAST) % 12;
-        return CHINESE_ZODIAC[zodiac];
+        int length = CHINESE_ZODIAC.length;
+        return CHINESE_ZODIAC[(length - Math.abs(year - CONTRAST) % length) % length];
     }
 }

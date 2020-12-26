@@ -18,10 +18,12 @@ import java.util.Arrays;
  * 则新的 String实例 中的实例属性, 会拷贝自相同 字面量实例 中储存的值, 即 共享同一个 byte[]
  * (对于字面量的创建可以参照: 字面量存放规则)
  * 2. coder用于指定编码格式为 LATIN1 / UTF16
+ * 2.1. 当字符串中仅包含 ISO-8859-1字符集 中的字符时, 字符序列 按照 ISO-8859-1字符集 编码, coder = 0
+ * 2.2. 当字符串中包含 ISO-8859-1字符集 以外的字符时, 字符序列 按照 UTF-16LE字符集 编码, coder = 1
  * 3. hashCode初始化为 0, 并将在首次调用计算hashCode时自动计算生成,
  * 又因为该属性没有提供 Setter方法, 也属于不可变类的属性
  * <p>
- * 注意: 因为 String的不可变性, 相同内容的 String实例 只是共用一个 byte[] 地址, 存储字节序列
+ * 注意: 因为 String的不可变性, 相同内容的 String实例 只是共用一个 byte[] 地址, 存储字节序列,
  * 但 String实例 本身并不相同
  * <p>
  * <p>
@@ -155,5 +157,4 @@ public class StringClassInner {
         System.out.println(s == x); // false
         System.out.println(t == x); // true
     }
-
 }

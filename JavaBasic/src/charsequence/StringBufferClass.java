@@ -6,6 +6,9 @@ import charsequence.util.StringBufferHelper;
  * 1. 自JDK5开始, 添加 AbstractStringBuilder 抽象类
  * StringBuilder(JDK5) 与 StringBuffer 均直接继承自该类
  * 2. StringBuilder 与 StringBuffer 均是 final class
+ * 3. StringBuffer 是 线程安全 的 StringBuilder 不是 线程安全 的
+ * 即: StringBuffer 中绝大多数实例方法都是 synchronized 修饰的,
+ * 而 StringBuilder 中的实例方法没有 synchronized 修饰的
  * <p>
  * 与 String 不同的是, 在 AbstractStringBuilder 类内部, 实例属性没有 final 修饰, 是可变的:
  * byte[] value;
