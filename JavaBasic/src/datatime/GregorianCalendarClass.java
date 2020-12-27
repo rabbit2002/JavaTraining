@@ -12,7 +12,26 @@ import java.util.GregorianCalendar;
  * Calendar类 内部通过字段储存日历数据
  * Calendar类 为特定时间与一组 日历字段 之间的转换提供了一些方法, 并为操作 日历字段 提供了一些方法
  * <p>
- * Calendar类 提供了根据 Calendar实例 返回 java.util.Date类 的实例 的方法
+ * Calendar类 提供了 根据 Calendar实例 返回 java.util.Date类 的实例 的方法 public final Date getTime();
+ * 步骤:
+ * 1. 获取 Calendar实例
+ * Calendar calendar = Calendar.getInstance();
+ * 2. 清空 Calendar实例 中的所有 日历字段 数据
+ * calendar.clear();
+ * 3. 根据需要 设置 日历字段 的 值
+ * calendar.set();
+ * 4. 根据 Calendar实例 获取 Date实例
+ * Date date =calendar.getTime();
+ * <p>
+ * 通过 Date实例 返回 Calendar实例的方法: public final void setTime(Date date);
+ * 1. 获取 Date实例
+ * Date date =new Date();
+ * 2. 获取 Calendar实例
+ * Calendar calendar = Calendar.getInstance();
+ * 3. 清空 Calendar实例 中的所有 日历字段 数据
+ * calendar.clear();
+ * 4. 根据 Calendar实例 获取 Date实例
+ * calendar.setTime(date);
  *
  * @author RABBIT2002
  * @date 2020/12/26
