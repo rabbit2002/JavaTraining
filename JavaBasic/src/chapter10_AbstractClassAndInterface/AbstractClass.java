@@ -13,14 +13,6 @@ package chapter10_AbstractClassAndInterface;
  * 抽象类是为了更好的实现多态,
  * 抽象类作为父类,子类继承后如果想实例化,就一定要实现父类的全部抽象方法,或子类自身也是抽象类,
  * 通过抽象方法让子类强制遵守实现(重写)父类的方法,实现多态
- * <p>
- * <p>
- * 嵌套类(Nested Class)共有两种:
- * 1.静态嵌套类(Static Nested Class) 2.非静态嵌套类/内部类(Inner Class)
- * 其中,内部类又分为:
- * 1.成员内部类(Member inner class) 2.局部内部类(Local inner class) 3.匿名内部类(Anonymous inner class)
- * 而包含嵌套类的类,可称为外围类(Enclosing Class)或外部类(Outer Class)
- * // TODO 需要更详细了解内部类
  *
  * @author RABBIT2002
  * @date 2020/12/10
