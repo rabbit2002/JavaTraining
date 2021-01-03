@@ -22,14 +22,13 @@ package innerclasses;
  * ;
  * <p>
  * The Java® Language Specification
- * 8.1.3 Inner Classes and Enclosing Instances 内部类和封闭实例
+ * 内部类和封闭实例
  * 嵌套类(Nested class)共有两种:
  * 1. 静态成员类(Static member class)
- * 2. 内部类(Inner Class)
- * 其中, 内部类又分为:
- * 1. 非静态成员类(non-static member class)
- * 2. 局部类(Local class)
- * 3. 匿名类(Anonymous class)
+ * 2. 内部类(Inner Class):
+ * 2.1. 非静态成员类(non-static member class)
+ * 2.2. 局部类(Local class)
+ * 2.3. 匿名类(Anonymous class)
  * 注意: 匿名类 属于 局部类, 二者均不属于 成员类 !!!
  * <p>
  * <p>

@@ -90,14 +90,14 @@ import java.util.Arrays;
  * 成员变量 和 类变量 都可以 手动初始化 或 自动初始化, 只有 局部变量 必须 手动初始化
  * <p>
  * <p>
- * // TODO 迁移 -> encapsulation - Immutable
+ * // TODO 迁移 -> encapsulation -> Immutable
  * final用来定义常量,即:值不可以更改的变量
  * 可以修饰类:该类不能被继承,方法:该方法不能被重写,属性:该属性不能修改
  * 1.在定义时初始化
  * 2.在构造函数/静态块中初始化
  * <p>
  * <p>
- * 封装
+ * 封装 // TODO 迁移 encapsulation
  * 包
  * 管理类和接口,解决命名冲突
  * 定义:package *.*.*
@@ -113,17 +113,17 @@ import java.util.Arrays;
  * 可分为:1.同类 2.同包 3.子类 4.任何类
  * <p>
  * 适用范围:
- * .        1.public     2.protected     3.(default)     4.private
+ * .        1.public     2.protected  3.package-private  4.private
  * 类           √              ×               √              ×
  * 属性/方法     √              √               √              √
  * <p>
- * 对于类中,使用 public 和 (default) 限制后访问区别如下:
- * .                    public          (default)
+ * 对于类中,使用 public 和 package-private(default) 限制后访问区别如下:
+ * .                    public        package-private
  * same package           √                 √
  * different package      √                 ×
  * <p>
  * 对于方法和属性中,使用四种 限制修饰符 限制后访问区别如下:
- * .               1.public     2.protected     3.(default)     4.private
+ * .               1.public     2.protected   3.package-private  4.private
  * same class          √             √                √              √
  * same package        √             √                √              ×
  * subclass            √             √                ×              ×
