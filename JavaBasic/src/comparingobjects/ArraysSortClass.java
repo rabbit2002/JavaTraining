@@ -10,6 +10,9 @@ import java.util.Random;
  * 1. 则需要该实例的类实现 Comparable接口 的 compareTo方法
  * 2. 或者使用 Comparator比较器
  *
+ * // TODO 完善说法
+ * https://blog.csdn.net/wlh2015/article/details/83959462
+ *
  * @author RABBIT2002
  * @date 2020/12/28
  */

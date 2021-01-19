@@ -15,6 +15,23 @@ import java.util.Arrays;
  * 而为了取得 Object 类 hashcode() 生成的原始 hash code,可以通过 System.identityHashCode() 方法获得
  * System.identityHashCode(); 可以获得任意引用变量所指向的对象对应的类在重写Object的hashCode之前hashCode方法返回的值
  *
+ * // TODO 迁移 Object Class
+ * // TODO hashcode and equals 完善
+ * 1. hashCode()返回对象的hashcode
+ * 2. 同一个对象在一次运行中应该返回同一个hashcode
+ * 3. 两个对象如果equals为true, 则hashcode必须相同
+ * 4. 两个对象如果equals为false, 则hashcode可以相同, 但是应该避免 为提高 hashtable性能
+ * (为了提高 hashtable 性能, 尽可能减少 hash冲突)
+ *
+ * 1. equals 用于判断两个实例是否相等
+ * 2. 自反性 x.equals(x) 为 true
+ * 3. 对称性 x.equals(y) 为 ture 时, y.equals(x) 一定为 true
+ * 4. 传递性 x.equals(y) 为 ture 时, y.equals(z) 为 ture, 则 x.equals(z) 一定为true
+ * 5. 一致性 在没有修改的情况下, 多次调用 x.equals(y) 会返回相同的值
+ * 6. 当 x!=null时, x.equals(null) 为false
+ * 7. x==y 为 true 时, equals为true
+ * 8. 在重写equals方法时, 为了保证hashcode()第2规则依然成立 ,要重写 hashcode(), 反之亦然
+ *
  * @author RABBIT2002
  * @date 2020/12/22
  */

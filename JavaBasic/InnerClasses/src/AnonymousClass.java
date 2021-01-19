@@ -1,5 +1,3 @@
-package innerclasses;
-
 /**
  * 匿名类常见的使用方式
  * 1. 继承接口, 实现接口方法
